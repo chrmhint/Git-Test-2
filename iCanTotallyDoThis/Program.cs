@@ -12,11 +12,17 @@ namespace iCanTotallyDoThis
             int guess;
             bool correct = false;
             Random rnd = new Random();
-            int r = rnd.Next(101);
+            
 
-            Console.WriteLine("Guess a number 1-100!");
+            Console.WriteLine("Please enter a range");
+            string[] tokens = Console.ReadLine().Split();
+            int a = int.Parse(tokens[0]);
+            int b = int.Parse(tokens[1]);
+
+            Console.WriteLine("Guess a number between {0} and {1}!", a, b);
+            int r = rnd.Next(a, b);
             input = Console.ReadLine();
-            guess = Convert.ToInt32(input);
+            guess = Convert.ToInt32(input); 
 
             if(guess == r)
             {
@@ -38,7 +44,7 @@ namespace iCanTotallyDoThis
                     }
 
                     numTries++;
-                    Console.WriteLine("Guess a number 1-100!");
+                    Console.WriteLine("Guess a number between {0} and {1}!", a, b);
                     input = Console.ReadLine();
                     guess = Convert.ToInt32(input);
                 }
